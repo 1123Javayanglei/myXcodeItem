@@ -1,0 +1,55 @@
+//
+//  PrefixHeader.pch
+//  CostList
+//
+//  Created by 许德鸿 on 16/8/12.
+//  Copyright © 2016年 XuDeHong. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "UIImage+Category.h"
+#import "UIView+Category.h"
+#import <CoreData/CoreData.h>
+#import "CostItem.h"
+#import "DataModelHandler.h"
+
+//定义APP全局主题tint color
+#define GLOBAL_TINT_COLOR [UIColor colorWithRed:89/255.0 green:217/255.0 blue:247/255.0 alpha:1.0]
+//屏幕宽度
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+//屏幕高度
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+//状态栏高度
+#define STATUS_BAR_HEIGHT [[UIApplication sharedApplication] statusBarFrame].size.height
+
+//4s机型
+#define DEVICE_IS_IPHONE4S ([[UIScreen mainScreen] bounds].size.height == 480)
+//5s机型
+#define DEVICE_IS_IPHONE5S ([[UIScreen mainScreen] bounds].size.height == 568)
+//6s机型
+#define DEVICE_IS_IPHONE6S ([[UIScreen mainScreen] bounds].size.height == 667)
+//6sPlus机型
+#define DEVICE_IS_IPHONE6SPLUS ([[UIScreen mainScreen] bounds].size.height == 736)
+
+//月份选择器NIB名称
+#define MonthPickerViewControllerNibName @"MonthPickerViewController"
+
+//获得根视图控制器
+#define ROOT_VIEW_CONTROLLER [UIApplication sharedApplication].delegate.window.rootViewController
+
+//处理CoreData错误
+extern NSString * const ManagedObjectContextSaveDidFailNotification;
+#define FATAL_CORE_DATA_ERROR(__error__) NSLog(@"*** Fatal error in %s:%d\n%@\n%@",__FILE__, __LINE__, error, [error userInfo]);[[NSNotificationCenter defaultCenter] postNotificationName:ManagedObjectContextSaveDidFailNotification object:error];
+
+#ifdef DEBUG
+#define NSLog(format, ...) printf("\n[%s] %s [第%d行] %s\n", __TIME__, __FUNCTION__, __LINE__, [[NSString stringWithFormat:format, ## __VA_ARGS__] UTF8String]);
+#else
+#define NSLog(format, ...)
+#endif
+
+#endif /* PrefixHeader_pch */
