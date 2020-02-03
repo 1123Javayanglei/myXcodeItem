@@ -19,14 +19,15 @@ int gcd(int a,int b);
 
 
 int main(int argc, const char * argv[]) {
-    double i=0;
-            double sums=4;
-            while (sums<3.1415926 || sums>3.1315927){
-                i+=1;
-                sums=sums-4/(4*i-1)+4/(4*i+1);
-    //            System.out.println("当前i="+i+" PI: "+sums);
-            }
-    printf("%lf\n",i);
+    
+//    double i=0;
+//            double sums=4;
+//            while (sums<3.1415926 || sums>3.1315927){
+//                i+=1;
+//                sums=sums-4/(4*i-1)+4/(4*i+1);
+//    //            System.out.println("当前i="+i+" PI: "+sums);
+//            }
+//    printf("%lf\n",i);
 //    double lmt=100.0;
 //    for (double x=-lmt; x<=lmt; x+=0.1) {
 //        //        printf("%d",cnt);
